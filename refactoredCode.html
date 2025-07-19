@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function createPricingCard(title, price, features, buttonText = "Start Trial") {
+  return `
+    <style>
+      .pricing-card {
+        width: 300px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      
+      .card-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .card-price {
+        font-size: 18px;
+        color: #2ecc71;
+        margin-bottom: 15px;
+      }
+      
+      .card-features {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        text-align: left;
+      }
+      
+      .card-features li {
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      
+      .card-features li:last-child {
+        border-bottom: none;
+      }
+      
+      .card-btn {
+        background: #3498db;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s ease;
+        width: 100%;
+      }
+      
+      .card-btn:hover {
+        background: #2980b9;
+      }
+    </style>
+    
+    <div class="pricing-card">
+      <h2 class="card-title">${title}</h2>
+      <p class="card-price">${price}</p>
+      <ul class="card-features">
+        ${features.map(feature => `<li>${feature}</li>`).join('')}
+      </ul>
+      <button class="card-btn">${buttonText}</button>
+    </div>
+  `;
+}
+
+// Example usage
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('pricing-container');
+  
+  const basicPlan = createPricingCard(
+    "Basic Plan",
+    "$9.99/month",
+    ["1 GB Storage", "Basic Support", "All Core Features"]
+  );
+  
+  const proPlan = createPricingCard(
+    "Pro Plan",
+    "$19.99/month",
+    ["10 GB Storage", "Priority Support", "Advanced Features", "API Access"],
+    "Get Started"
+  );
+  
+  container.innerHTML = basicPlan + proPlan;
+});
+</script>
+</head>
+<body>
+  <div id="pricing-container"></div>
+</body>
+</html>
