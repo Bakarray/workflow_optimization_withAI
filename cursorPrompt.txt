@@ -1,0 +1,16 @@
+Fix these issues in the code:
+1. Typo in 'box-shdow' property
+2. Unclosed </h2> tag
+3. Add padding to feature list items
+4. Make padding consistent
+5. Add hover transition effect
+6. Center-align card content
+7. Make component reusable with parameters
+
+Refactor into a function that takes:
+- title (string)
+- price (string)
+- features (array of strings)
+- buttonText (string)
+
+Return the HTML as a string. Include all CSS inside the component.
